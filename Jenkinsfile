@@ -25,7 +25,8 @@ ls -lrt
 
     stage('Cloning') {
       steps {
-        sh 'git clone https://github.com/LaughingAsura/LaughingAsura_Coding.git'
+        sh '''pwd
+git clone https://github.com/LaughingAsura/LaughingAsura_Coding.git'''
       }
     }
 
