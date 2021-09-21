@@ -26,7 +26,8 @@ ls -lrt
     stage('Cloning') {
       steps {
         sh '''pwd
-git clone https://github.com/LaughingAsura/LaughingAsura_Coding.git'''
+echo $runScript
+echo $printString'''
       }
     }
 
