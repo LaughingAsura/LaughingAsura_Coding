@@ -1,8 +1,5 @@
 pipeline {
   agent any
-  options { 
-    skipDefaultCheckout() 
-  } 
   stages {
     stage('Docker') {
       parallel {
@@ -39,5 +36,12 @@ git clone https://github.com/LaughingAsura/LaughingAsura_Coding.git'''
       }
     }
 
+  }
+  environment {
+    runScript = 'True'
+    printString = 'True'
+  }
+  options {
+    skipDefaultCheckout()
   }
 }
