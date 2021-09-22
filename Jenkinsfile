@@ -40,9 +40,12 @@ echo $printString'''
     }
 
     stage('Testing') {
+      when {
+        environment name: 'runScript', value: 'Yes'
+      }
       steps {
         echo 'Testing'
-        build(job: 'test1', parameters: [[$class: 'StringParameterValue', runScript: env.runScript, printString: env.printString]])
+        build 'test1'
       }
     }
 
