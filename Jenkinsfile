@@ -31,7 +31,7 @@ ls -lrt
     stage('Cloning') {
       when {
         environment name: 'runScript', value: False
-            }
+      }
       steps {
         sh '''pwd
 echo $runScript
@@ -42,14 +42,14 @@ echo $printString'''
     stage('Testing') {
       steps {
         echo 'Testing'
-        build job : 'test1', parameters: [[$class: 'StringParameterValue', runScript: $runScript, printString: $printString]]
+        build(job: 'test1', parameters: [[$class: 'StringParameterValue', runScript: $runScript, printString: $printString]])
       }
     }
 
   }
   environment {
-    runScript = 'True'
-    printString = 'True'
+    runScript = 'Yes'
+    printString = 'Yes'
   }
   options {
     skipDefaultCheckout()
