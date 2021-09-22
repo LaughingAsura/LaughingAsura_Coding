@@ -34,6 +34,7 @@ echo $printString'''
     stage('Testing') {
       steps {
         echo 'Testing'
+        build 'test1'
       }
     }
 
