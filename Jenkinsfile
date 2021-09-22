@@ -29,6 +29,9 @@ ls -lrt
     }
 
     stage('Cloning') {
+      when {
+        environment name: 'runScript', value: True
+            }
       steps {
         sh '''pwd
 echo $runScript
