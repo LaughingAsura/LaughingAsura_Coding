@@ -30,7 +30,7 @@ ls -lrt
 
     stage('Cloning') {
       when {
-        environment name: 'runScript', value: True
+        environment name: 'runScript', value: False
             }
       steps {
         sh '''pwd
