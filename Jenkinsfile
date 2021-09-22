@@ -1,5 +1,10 @@
 pipeline {
-  agent any
+  agent {
+    node {
+      label 'jenkins_pipeline_slave'
+    }
+
+  }
   stages {
     stage('Docker') {
       parallel {
