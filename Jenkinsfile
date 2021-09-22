@@ -39,7 +39,7 @@ echo $printString'''
     stage('Testing') {
       steps {
         echo 'Testing'
-        build 'test1'
+        build 'test1', parameters: [[$class: 'StringParameterValue', runScript: $runScript, printString: $printString]]
       }
     }
 
