@@ -6,10 +6,10 @@ pipeline {
 
   }
   parameters {
-    string(runScript: 'Yes', defaultValue: 'NA')
-    string(printString: 'Yes', defaultValue: 'NA')
-    string(BRANCH: 'testing_branch', defaultValue: 'NA')
-    string(TESTBED: '/builds/testbeds/ucsblr742cip', defaultValue: 'NA')
+    string(name: 'runScript', defaultValue: 'Yes')
+    string(name: 'printString', defaultValue: 'Yes')
+    string(name: 'BRANCH', defaultValue: 'Testing_Branch')
+    string(name: 'TESTBED', defaultValue: '/builds/testbeds/ucsblr742cip')
   }
   stages {
     stage('Docker') {
@@ -53,8 +53,8 @@ echo $printString'''
         echo 'Testing'
         build job: 'your-job-name', 
           parameters: [
-            string(name: 'runScript', value: String.valueOf(runScript)),
-            string(name: 'printString', value: 'prefix-' + String.valueOf(printString))
+            string(name: 'runScript', value: String.valueOf(params.runScript)),
+            string(name: 'printString', value: 'prefix-' + String.valueOf(params.printString))
     ]
       }
     }
