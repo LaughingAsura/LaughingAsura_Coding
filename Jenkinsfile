@@ -51,7 +51,7 @@ echo $printString'''
       }
       steps {
         echo 'Testing'
-        build job: 'your-job-name', 
+        build job: 'test1', 
           parameters: [
             string(name: 'runScript', value: String.valueOf(params.runScript)),
             string(name: 'printString', value: 'prefix-' + String.valueOf(params.printString))
