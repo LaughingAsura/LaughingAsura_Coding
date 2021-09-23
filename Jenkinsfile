@@ -36,7 +36,7 @@ ls -lrt
 
     stage('Cloning') {
       when {
-        parameter name: 'runScript', value: 'No'
+        expression { params.runScript == 'No' }
       }
       steps {
         sh '''pwd
@@ -47,7 +47,7 @@ echo $printString'''
 
     stage('Testing') {
       when {
-        parameter name: 'runScript', value: 'Yes'
+        expression { params.runScript == 'Yes' }
       }
       steps {
         echo 'Testing'
