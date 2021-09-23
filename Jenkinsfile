@@ -6,11 +6,10 @@ pipeline {
 
   }
   parameters {
-      string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
-      text(name: 'BIOGRAPHY', defaultValue: '', description: 'Enter some information about the person')
-      booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Toggle this value')
-      choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
-      password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
+    string(runScript: 'Yes', defaultValue: 'NA')
+    string(printString: 'Yes', defaultValue: 'NA')
+    string(BRANCH: 'testing_branch', defaultValue: 'NA')
+    string(TESTBED: '/builds/testbeds/ucsblr742cip', defaultValue: 'NA')
   }
   stages {
     stage('Docker') {
@@ -52,14 +51,14 @@ echo $printString'''
       }
       steps {
         echo 'Testing'
-        build 'test1'
+        build job: 'your-job-name', 
+          parameters: [
+            string(name: 'runScript', value: String.valueOf(runScript)),
+            string(name: 'printString', value: 'prefix-' + String.valueOf(printString))
+    ]
       }
     }
 
-  }
-  environment {
-    runScript = 'Yes'
-    printString = 'Yes'
   }
   options {
     skipDefaultCheckout()
